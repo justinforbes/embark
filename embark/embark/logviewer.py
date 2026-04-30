@@ -247,6 +247,7 @@ class UpdateLogConsumer(LogConsumer):
         if not os.path.isfile(self.log_file_path):
             await self.send_message({"error": "The log file does not exist, yet."})
             await self.close()
+            return
 
         self.line_cache = LineCache(self.log_file_path)
 
