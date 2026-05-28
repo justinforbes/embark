@@ -41,6 +41,10 @@ class Configuration(models.Model):
         Writes into self.log_location
         :returns: None
         """
+        if not self.log_location:
+            logger.error("No log_location configured")
+            return
+    
         if not Path(self.log_location).is_file():
             with open(self.log_location, 'x') as log_file:
                 log_file.write(string + "\n")
