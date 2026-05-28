@@ -4,6 +4,7 @@ __license__ = 'MIT'
 
 import os
 import ipaddress
+import logging
 from pathlib import Path
 import socket
 import paramiko
@@ -16,6 +17,7 @@ from django.conf import settings
 from users.models import User
 from workers.codeql_ignore import new_autoadd_client
 
+logger = logging.getLogger(__name__)
 
 class Configuration(models.Model):
 
